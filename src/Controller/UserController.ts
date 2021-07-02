@@ -13,13 +13,17 @@ export default {
     },
     async create(req:Request, res:Response){
         const emailMessage = new EmailService()
-        return console.log(emailMessage.messageEmail({
+        emailMessage.messageEmail({
+            to:{
             name:"Josia Josué",
             email:"Josiaalmeida001@gmail.com"
-        },
-        {
-            subject:"Bem vindo manoooo",
-            body:"Bem Vindo"
-        }))
+            },
+            message:{
+                subject:"Bem vindo manoooo",
+                body:"Bem Vindo"
+            }
+        })
+        res.send("Criado")
+        
     }
 }

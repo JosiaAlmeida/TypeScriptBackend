@@ -1,14 +1,19 @@
-interface To {
+interface ITo {
     name:string, 
     email:string
 }
-interface Message{
+interface IMessage{
     subject:string
     body:string
 }
 
+interface IMaitoDTO{
+    to: ITo
+    message: IMessage
+}
+
 class SendEmail {
-    messageEmail(to:To, message:Message){
+    messageEmail({to, message}: IMaitoDTO){
         console.log(`Email enviado para ${to.name}: ${message.body}`)
     }
 }
